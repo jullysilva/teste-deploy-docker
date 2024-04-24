@@ -2,7 +2,8 @@
 FROM eclipse-temurin:17-jdk AS build
 WORKDIR /app
 COPY . .
-RUN mvn -x clean package
+RUN mvn clean 
+RUN mvn package
 
 # Segundo estágio do Dockerfile para montar o container de execução da aplicação
 FROM eclipse-temurin:17-jre
