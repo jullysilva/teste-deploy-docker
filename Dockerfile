@@ -3,9 +3,10 @@ FROM eclipse-temurin:17-jdk AS build
 WORKDIR /app
 COPY . .
 
+RUN sudo apt-get update 
 RUN sudo apt-get install maven -y
 
-# RUN mvn clean 
+RUN mvn clean 
 RUN mvn package
 
 # Segundo estágio do Dockerfile para montar o container de execução da aplicação
